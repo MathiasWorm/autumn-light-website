@@ -6,17 +6,18 @@
   font-family: "Inter", Arial, sans-serif;
 }
 
+/* -------- Base -------- */
 body {
-  background: #f7f7f7;
-  color: #2b2b2b;
+  background: #020617; /* deep navy */
+  color: #e5e7eb;
   line-height: 1.6;
 }
 
 /* -------- Navigation -------- */
 nav {
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
-  padding: 15px 40px;
+  background: #020617;
+  border-bottom: 1px solid #111827;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +26,7 @@ nav {
 nav .logo {
   font-weight: 700;
   font-size: 20px;
-  color: #333;
+  color: #f9fafb;
 }
 
 nav ul {
@@ -36,45 +37,219 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #333;
+  color: #e5e7eb;
   font-weight: 600;
+  font-size: 14px;
 }
 
 nav ul li a:hover {
-  color: #0078ff;
+  color: #f97316; /* orange accent */
 }
 
 /* -------- Hero Section -------- */
 .hero {
-  text-align: center;
-  padding: 120px 40px;
-  background: linear-gradient(135deg, #4a90e2, #003d80);
-  color: white;
+  max-width: 1150px;
+  margin: 60px auto 0;
+  padding: 70px 60px;
+  background: #0b1120;
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
-.hero p {
-  font-size: 20px;
-  opacity: 0.9;
-  margin-bottom: 30px;
+.hero-text {
+  flex: 1.1;
 }
 
-.hero .btn {
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  color: #f97316;
+  font-weight: 600;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  margin: 16px 0 20px;
+  color: #f9fafb;
+}
+
+.hero-text h1 .highlight {
+  display: block;
+  color: #fbbf24; /* yellow accent */
+}
+
+.hero-text p {
+  font-size: 15px;
+  max-width: 420px;
+  color: #cbd5f5;
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Reusable button styles */
+.btn {
   display: inline-block;
   padding: 12px 22px;
-  background: #fff;
-  color: #003d80;
-  border-radius: 6px;
+  border-radius: 999px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s ease-out;
 }
 
-.hero .btn:hover {
-  opacity: 0.85;
+.btn.primary {
+  background: #f97316;
+  color: #0b1120;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+}
+
+.btn.secondary {
+  border: 1px solid #4b5563;
+  color: #e5e7eb;
+}
+
+.btn.secondary:hover {
+  background: #111827;
+}
+
+.hero-quote {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.hero-quote span {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* -------- Hero Visual (right side) -------- */
+.hero-visual {
+  flex: 1;
+  position: relative;
+  min-height: 260px;
+}
+
+/* Main purple card */
+.visual-card {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: 260px;
+  height: 210px;
+  border-radius: 32px;
+  background: radial-gradient(circle at top left, #a855f7, #4c1d95);
+}
+
+/* Small orange badge */
+.visual-badge {
+  position: absolute;
+  right: 210px;
+  top: 40px;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, #fb923c, #b91c1c);
+}
+
+/* Faint circle */
+.visual-circle {
+  position: absolute;
+  right: 220px;
+  bottom: 18px;
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+}
+
+.visual-controller {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  width: 140px;
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+}
+
+.visual-building {
+  position: absolute;
+  bottom: 140px;      /* leicht unter die Profilkarte */
+  right: -60px;       /* elegant in der Ecke */
+  width: 140px;       /* verkleinert */
+  opacity: 0.92;      /* leicht transparent für harmonischen Look */
+  z-index: 20;        /* über allen anderen Visuals */
+  pointer-events: none; /* verhindert, dass es anklickbar ist */
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+}
+
+
+/* "Profile" card */
+.visual-profile {
+  position: absolute;
+  right: 40px;
+  bottom: -10px;
+  width: 150px;
+  height: 190px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #facc15, #f97316);
+}
+
+/* -------- Brands Strip -------- */
+.brands {
+  max-width: 1150px;
+  margin: 28px auto 0;
+  background: #fef3c7;
+  border-radius: 20px;
+  padding: 18px 36px;
+}
+
+.brands-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.brands-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #92400e;
+  font-weight: 600;
+}
+
+.brand-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  font-size: 13px;
+  color: #78350f;
+}
+
+.brand-logos span {
+  opacity: 0.8;
 }
 
 /* -------- Footer -------- */
@@ -82,5 +257,22 @@ footer {
   margin-top: 60px;
   padding: 20px;
   text-align: center;
-  color: #777;
+  color: #6b7280;
+  font-size: 13px;
+}
+footer .social-links {
+  margin-bottom: 15px;
+}
+
+footer .social-links a img {
+  width: 28px;
+  height: 28px;
+  margin: 0 10px;
+  filter: invert(40%);
+  transition: 0.2s;
+}
+
+footer .social-links a img:hover {
+  filter: invert(20%) brightness(0.5);
+  transform: translateY(-3px);
 }
